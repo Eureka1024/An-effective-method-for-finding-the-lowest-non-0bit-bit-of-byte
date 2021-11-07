@@ -377,7 +377,7 @@ int main(void)
 
 >Start time = 0ms
 >
->End time = 2272475ms
+>End time = 
 
 
 
