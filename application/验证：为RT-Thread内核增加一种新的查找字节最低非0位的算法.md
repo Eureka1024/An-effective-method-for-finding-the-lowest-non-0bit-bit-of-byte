@@ -156,36 +156,36 @@ End of verification
 ```C
 int main(void)
 {
-  	HAL_Init();
+	HAL_Init();
   	SystemClock_Config();
   	MX_GPIO_Init();
   	MX_USART1_UART_Init();
 
 	for(unsigned int i= 0x00; i< 0xFFFFFFFF; i++)
 	{
-		if(__rt_ffs(i) != __rt_ffs_new(i)) //报错
-        {
-            while(1)
+	     if(__rt_ffs(i) != __rt_ffs_new(i)) //报错
             {
-                printf("error1 = %u   ", i);
-                printf("__rt_ffs(i) = %d  ", __rt_ffs(i));
-                printf("__rt_ffs_new(i) = %d  ", __rt_ffs_new(i));
+            	while(1)
+            	{
+		    printf("error1 = %u   ", i);
+                    printf("__rt_ffs(i) = %d  ", __rt_ffs(i));
+                    printf("__rt_ffs_new(i) = %d  ", __rt_ffs_new(i));
+                }
             }
-        }
 	}
     
 	if(__rt_ffs(0xFFFFFFFF) != __rt_ffs_new(0xFFFFFFFF)) 
-    {
-        while(1)
         {
-            printf("error2"); //报错
+            while(1)
+            {
+                printf("error2"); //报错
+            }
         }
-    }
     
-    while(1) //匹配结果正确，提示结束
-    {
-       printf("End of verification");
-    };
+        while(1) //匹配结果正确，提示结束
+        {
+           printf("End of verification");
+        };
 }
 ```
 
@@ -340,6 +340,7 @@ int main(void)
 使用新版本的算法 
 
 >Start time = 0ms
+>
 >End time = 138299ms
 
 #### 对输入所有可能的结果进行测量（`0x00 - 0xFFFFFFFF` ）
@@ -377,7 +378,7 @@ int main(void)
 
 >Start time = 0ms
 >
->End time = 
+>End time = 2272475ms
 
 
 
